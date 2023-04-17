@@ -3,7 +3,6 @@ import { useState } from "react";
 import { useContext } from "react";
 import { UserContext } from "../../userContext";
 import { CommentsContext } from "./commentsContext";
-// import { useForm } from '../../hooks/useForm';
 import { useDispatch, useSelector } from "react-redux";
 import { addComment, getComments } from "../../slices/comments/thunks";
 
@@ -11,21 +10,8 @@ import { useForm } from "react-hook-form";
  
 export const CommentAdd = ({ id }) => {
   const { usuari, email,setUsuari, authToken, setAuthToken } = useContext(UserContext);
-  // const { comments = [], page=0, isLoading=true, add=true, error="", commentsCount=0 } = useSelector((state) => state.comments);
   const dispatch = useDispatch();
   const { register, handleSubmit,reset,formState: { errors }} = useForm();
-  
-  // const dispatch = useDispatch();
-  //   const { formState, onInputChange, onResetForm} = useForm({
-  //     comment: "",      
-  //     });
-      
-  //     const { comment} = formState
-
-  // useEffect(()=>{
-  //   dispatch(getComments(0,id,authToken,usuari));
-  // },[]);
-
   const onSubmit = (formData) => {
     const dataWithId = {
       id: id,

@@ -14,14 +14,10 @@ export const PostEdit = () => {
   const { usuari, email, setUsuari, authToken, setAuthToken } = useContext(UserContext);
   const { post, page=0, error="", isLoading=true } = useSelector((state) => state.posts);
   const dispatch = useDispatch();
-
   const { id } = useParams();
   let navigate = useNavigate();
-
   const [avis, setAvis] = useState("");
- 
   let [ formulari, setFormulari] = useState({});
-
   const handleChange = (e)=> {
     e.preventDefault();
     if (e.target.type && e.target.type==="file")

@@ -25,9 +25,6 @@ export const PlacesAdd = () => {
   let navigate = useNavigate();
   const { register, handleSubmit,formState: { errors },setValue} = useForm();
 
-  // const [position, setPosition] = useState(null);
-  // const [formulari, setFormulari] = useState({});
-
   const afegir = (data) => {
 
     const data2 = { ...data, upload: data.upload[0]}
@@ -38,20 +35,7 @@ export const PlacesAdd = () => {
     
   }
 
-  // useEffect(() => {
-    // navigator.geolocation.getCurrentPosition((pos) => {
-    //   setFormulari({
-    //     ...formulari,
-    //     latitude: pos.coords.latitude,
-    //     longitude: pos.coords.longitude,
-    //   });
-
-    //   console.log("Latitude is :", pos.coords.latitude);
-    //   console.log("Longitude is :", pos.coords.longitude);
-    // });
-
-     
-  // }, []);
+  
 
   useEffect(() => {
     // dispatch(addPlace(afegir));
@@ -64,43 +48,7 @@ export const PlacesAdd = () => {
 
   }, [])
 
-  // function LocationMarker() {
-  //   const map = useMapEvents({
-  //     click() {
-  //       map.locate();
-  //     },
-  //     locationfound(e) {
-  //       setPosition(e.latlng);
-  //       console.log(e.latlng);
-  //       map.flyTo(e.latlng, map.getZoom());
-  //     },
-  //   });
-
-  //   return position === null ? null : (
-  //     <Marker position={position}>
-  //       <Popup>You are here</Popup>
-  //     </Marker>
-  //   );
-  // }
-
-  // const handleChange = (e) => {
-  //   e.preventDefault();
-
-  //   if (e.target.type && e.target.type==="file") {
-  //     console.log(e.target.files[0].name);
-  //     setFormulari({
-  //       ...formulari,
-  //       [e.target.name]: e.target.files[0],
-  //     });
-  //   } else {
-  //     // Canviem l'element de l'objecte de l'estat
-  //     setFormulari({
-  //       ...formulari,
-  //       [e.target.name]: e.target.value,
-  //     });
-  //   }
-  // };
-
+  
 
   return (
     <>

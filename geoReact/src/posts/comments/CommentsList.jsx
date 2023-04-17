@@ -12,9 +12,6 @@ import React from "react";
   import { useDispatch, useSelector } from "react-redux";
   import { setAdd, setCommentsCount } from "../../slices/comments/commentSlice";
 
-
-  // Fem servir un context únicament dins de tots els components de Comments
-
   export const CommentsList = ({ id, comments_count }) => {
     const { usuari, email,setUsuari, authToken, setAuthToken } = useContext(UserContext);
     const { comments = [], page=0, isLoading=true, add=true, error="", commentsCount=0 } = useSelector((state) => state.comments);
@@ -57,7 +54,7 @@ import React from "react";
               return <Comment key={v.id} comment={v} />;
             })
           ) : (
-            <div>No hay comentarios</div>
+            <div>No existen comentarios</div>
           )
         )}
       </>

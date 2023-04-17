@@ -11,14 +11,6 @@ export const Register = ({ setLogin }) => {
     let [ error, setError2] = useState("");
     let { usuari, setUsuari, authToken, setAuthToken } = useContext(UserContext);
 
-    // const { formState, onInputChange } = useForm({
-    //     name: "",
-    //     email: "",
-    //     password: "",
-    //     password2: "",
-    //     });
-    //     const {name, email, password, password2} = formState;
-
     const { checkAuthToken } = useLogin(); 
 
   const onSubmit = data => handleRegister(data);
@@ -41,7 +33,6 @@ export const Register = ({ setLogin }) => {
             "Content-Type": "application/json"
             },
             method: "POST",
-            // Si els noms i les variables coincideix, podem simplificar
             body: JSON.stringify({ name: name, email: email, password: password})
 
         })

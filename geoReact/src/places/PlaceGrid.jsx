@@ -11,8 +11,6 @@ export const PlaceGrid = ({v} ) => {
   const { places = [], page=0, isLoading=true, error="", favorites } = useSelector((state) => state.places);
   const dispatch = useDispatch();
   
-  
-  
   return (
     <div key={v.id } className="p-1 rounded-xl group sm:flex space-x-6 bg-white bg-opacity-50 shadow-xl hover:rounded-2xl">
           <img src={ "https://backend.insjoaquimmir.cat/storage/" + v.file.filepath } alt="art cover" loading="lazy" width="1000" height="667" className="h-56 sm:h-full w-full sm:w-5/12 object-cover object-top rounded-lg transition duration-500 group-hover:rounded-xl"/>

@@ -1,7 +1,6 @@
 import React from "react";
 import { useContext } from "react";
 import { UserContext } from "../../userContext";
-import { CommentsContext } from "./commentsContext";
 
 import TimeAgo from "react-timeago";
 import catStrings from "react-timeago/lib/language-strings/ca";

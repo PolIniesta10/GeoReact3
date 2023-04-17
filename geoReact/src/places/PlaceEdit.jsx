@@ -11,18 +11,12 @@ import { useDispatch, useSelector } from 'react-redux';
 
 
 export const PlaceEdit = () => {
-
   const { usuari, email, setUsuari, authToken, setAuthToken } = useContext(UserContext);
   const { place, page=0, error="", isLoading=true } = useSelector((state) => state.places);
   const dispatch = useDispatch();
-
   const { id } = useParams();
   let navigate = useNavigate();
-
-  const [avis, setAvis] = useState("");
- 
   let [ formulari, setFormulari] = useState({});
-
   const handleChange = (e)=> {
     e.preventDefault();
     if (e.target.type && e.target.type==="file")
@@ -33,7 +27,6 @@ export const PlaceEdit = () => {
         [e.target.name] : e.target.files[0] 
       })
     } else {
-      // Canviem l'element de l'objecte de l'estat
       setFormulari({
         ...formulari,
         [e.target.name] : e.target.value
@@ -55,58 +48,6 @@ export const PlaceEdit = () => {
     })
   }, [place]) 
 
-
-  
-    // const editar = (e) => {
-
-    //     e.preventDefault();
-    
-    //     let {name,description,upload,latitude,longitude,visibility}=formulari;
-    //     const formData = new FormData();
-    //     formData.append("name", name);
-    //     formData.append("description", description);
-    //     formData.append("upload", upload);
-    //     formData.append("latitude", latitude);
-    //     formData.append("longitude", longitude);
-    //     formData.append("visibility", visibility);
-    
-    
-    
-    //     console.log("Editant un Lloc....")
-    //     console.log(formulari)
-    //     console.log(JSON.stringify({ name,description,upload,latitude,longitude,visibility }))
-    //     // Enviam dades a l'aPI i recollim resultat
-    //     fetch ("https://backend.insjoaquimmir.cat/api/places/"+id,{
-    //         headers: {
-    //             'Accept': 'application/json',
-    //             //'Content-type': 'multipart/form-data',
-    //             'Authorization': 'Bearer ' + authToken 
-    //         },
-    //         method: "POST",
-    //         // body: JSON.stringify({ name,description,upload,latitude,longitude,visibility })
-    //         body: formData
-    
-    //       }
-    //     ).then( data => data.json() )
-    //     .then (resposta => { 
-            
-    //             console.log(resposta); 
-    //             if (resposta.success == true )
-    //             {
-                    
-    //                 console.log(authToken)
-    //                 //setAfegir(false); // Tornem al llistat
-    //                 navigate("/places/")
-    //             }
-    //             else
-    //             {
-    //                   setError(resposta.message)
-
-    //             }
-    //         } ) 
-    
-    
-    //   }
 
 
   return (

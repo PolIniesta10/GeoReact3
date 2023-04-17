@@ -1,5 +1,4 @@
 import React, { useReducer } from "react";
-import { useState } from "react";
 import { useEffect } from "react";
 import { useContext } from "react";
 import { Link, useLocation, useParams } from "react-router-dom";
@@ -14,15 +13,12 @@ import { useDispatch, useSelector } from "react-redux";
 import { getPlace, favourite, unfavourite, delPlace, editPlace } from "../slices/places/thunks";
 
 export const Place = () => {
-
   const { usuari, email, setUsuari, authToken, setAuthToken } = useContext(UserContext);
   const { place, page=0, error="", isLoading=true, favorites, favorited } = useSelector((state) => state.places);
   const dispatch = useDispatch();
-
   const { id } = useParams();
   const { pathname } = useLocation();
   const { placeMarks, isMarked } = useSelector((state) => state.placeMarks);
-
   const markPlace = (event) => {
     event.preventDefault();
     if(place.description.lenght <= 1) return;
@@ -45,9 +41,6 @@ export const Place = () => {
 
   return (
     <>
-      {/* Place { id } */}
-
-      {/* Només es renderitza quan isLoading es false */}
       {isLoading ? (
         "Espera...."
       ) : (
@@ -85,19 +78,7 @@ export const Place = () => {
               </div>
               <p className=" bg-yellow-100">{place.description}</p>
               <div className="mt-10 h-12 max-h-full md:max-h-screen">
-                {/* <MapContainer  style={{ height: 280 }} center={[43.92853, 2.14255]} zoom={12} scrollWheelZoom={false}>
-  <TileLayer
-    attribution='&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
-    url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png"
-  />
-  <Marker position={[43.92853, 2.14255]}>
-    <Popup>
-       { position }. 
-    </Popup>
-  </Marker>
-</MapContainer> */}
-
-                {/* <button type="submit" onClick={() => markPlace(place)}>DESAR</button> */}
+              
                 {place.author.email === usuari ? (
                   <>
                     <Link
